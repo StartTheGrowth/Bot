@@ -19,6 +19,8 @@ public class Main extends TelegramLongPollingBot {
 
             if (messageText.equals("/start")) {
                 message.setText("Привет, я простой телеграмм-бот. Напиши сюда что-нибудь");
+            } else if (messageText.equals("картинка")) {
+                message.setText("Невозможно");
             } else {
                 message.setText("Ты написал " + messageText);
             }
@@ -41,13 +43,13 @@ public class Main extends TelegramLongPollingBot {
     }
 
     public static void main(String[] args) {
-       try {
-           TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-           botsApi.registerBot(new Main());
-           System.out.println("Бот запущен");
+        try {
+            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            botsApi.registerBot(new Main());
+            System.out.println("Бот запущен");
 
-       } catch (TelegramApiException e) {
-           e.printStackTrace();
-       }
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
 }
